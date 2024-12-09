@@ -1,0 +1,42 @@
+﻿@model T2.Entity.ViajesViewModele
+
+@{
+    ViewBag.Title = "ListadoViajes";
+}
+
+<h2>ListadoViajes</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div id="viajesTableContainer">
+    <table class="table table-hover">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Viajes.First().CodRut)</th>
+            <th>@Html.DisplayNameFor(model => model.Viajes.First().CostoVia)</th>
+            <th>@Html.DisplayNameFor(model => model.Viajes.First().DesRut)</th>
+            <th>@Html.DisplayNameFor(model => model.Viajes.First().FecVia)</th>
+            <th>@Html.DisplayNameFor(model => model.Viajes.First().HrsSal)</th>
+            <th>@Html.DisplayNameFor(model => model.Viajes.First().NroVia)</th>
+            <th></th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model.Viajes)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.CodRut)</td>
+                <td>@Html.DisplayFor(modelItem => item.CostoVia)</td>
+                <td>@Html.DisplayFor(modelItem => item.DesRut)</td>
+                <td>@Html.DisplayFor(modelItem => item.FecVia)</td>
+                <td>@Html.DisplayFor(modelItem => item.HrsSal)</td>
+                <td>@Html.DisplayFor(modelItem => item.NroVia)</td>
+                <td>
+                    @*@Html.ActionLink("Edit", "EditarViajes", new { nroVia = item.Nro_Via }, new { @class = "btn btn-outline-primary" })
+                    @Html.ActionLink("Details", "DetallesViaje", new { nroVia = item.Nro_Via }, new { @class = "btn btn-outline-secondary" })
+                    <button class="btn btn-outline-danger" onclick="confirmarEliminacion('@item.Nro_Via')">Eliminar</button>*@
+                </td>
+            </tr>
+        }
+    </table>
+</div>
