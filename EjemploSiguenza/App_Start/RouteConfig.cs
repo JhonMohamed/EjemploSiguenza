@@ -16,7 +16,7 @@ namespace EjemploSiguenza
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Viajes", action = "ListadoViajes", id = UrlParameter.Optional }
+                defaults: new { controller = "Viajes", action = "ListadoCompletoViajes", id = UrlParameter.Optional }
             );
         }
     }

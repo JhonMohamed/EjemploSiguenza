@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace T2.Entity
 {
-    public class Class1
+    public class Ruta
     {
+        public string CodRuta { get; set; }
+        public string Destino { get; set; }
     }
 }

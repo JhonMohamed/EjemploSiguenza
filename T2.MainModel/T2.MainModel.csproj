@@ -41,10 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusManager.cs" />
     <Compile Include="ChoferManager.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="FechaManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RutaManager.cs" />
+    <Compile Include="TwoViajesManager.cs" />
     <Compile Include="ViajesManager.cs" />
   </ItemGroup>
   <ItemGroup>

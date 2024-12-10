@@ -1,0 +1,105 @@
+﻿@model T2.Entity.ViajesCRUDViewModel
+
+@{
+    ViewBag.Title = "DetallesViaje";
+}
+
+<h2>Detalles del Viaje</h2>
+
+<div>
+    <h4>ViajesCRUDViewModel</h4>
+    <hr />
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Viajes.NumeroViaje)
+        <p class="form-control-static">
+            @if (Model != null && Model.Viajes != null)
+            {
+                @Model.Viajes.NumeroViaje
+            }
+            else
+            {
+                @:N/A
+            }
+        </p>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Viajes.nro_pla)
+        <p class="form-control-static">
+            @if (Model != null && Model.Viajes != null)
+            {
+                @Model.Viajes.nro_pla
+            }
+            else
+            {
+                @:N/A
+            }
+        </p>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Viajes.DescripcionRuta)
+        <p class="form-control-static">
+            @if (Model != null && Model.Viajes != null)
+            {
+                @Model.Viajes.DescripcionRuta
+            }
+            else
+            {
+                @:N/A
+            }
+        </p>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Viajes.HoraSalida)
+        <p class="form-control-static">
+            @if (Model != null && Model.Viajes != null)
+            {
+                @Model.Viajes.HoraSalida
+            }
+            else
+            {
+                @:N/A
+            }
+        </p>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Viajes.FechaViaje)
+        <p class="form-control-static">
+            @if (Model != null && Model.Viajes != null && Model.Viajes.FechaViaje.HasValue)
+            {
+                @Model.Viajes.FechaViaje.Value.ToString("dd/MM/yyyy")
+            }
+            else
+            {
+                @:N/A
+            }
+        </p>
+    </div>
+
+    <<div class="form-group">
+        @Html.LabelFor(model => model.Viajes.CostoViaje)
+        <p class="form-control-static">
+            @if (Model.Viajes.CostoViaje.HasValue)
+            {
+                @Model.Viajes.CostoViaje.Value.ToString("C")
+            }
+            else
+            {
+                @:N/A
+            }
+        </p>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Viajes.NombreChofer)
+        <p class="form-control-static">@Model.Viajes.NombreChofer</p>
+    </div>
+
+    <p>
+        @Html.ActionLink("Volver a la lista", "ListadoCompletoViajes", null, new { @class = "btn btn-secondary" })
+    </p>
+</div>

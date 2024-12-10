@@ -8,8 +8,8 @@ namespace T2.Entity
 {
     public class Viaje
     {
-        public string NroVia { get; set; }    
-        public int? FecVia { get; set; }  
+        public string NroVia { get; set; }
+        public DateTime? FecVia { get; set; }
         public string HrsSal { get; set; }    
         public string CodRut { get; set; }    
         public string DesRut { get; set; }    

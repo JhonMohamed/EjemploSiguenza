@@ -19,7 +19,7 @@ namespace T2.SQLServer
             SqlConnection conectionsql = new SqlConnection(cadena);
             conectionsql.Open();
 
-            SqlCommand smd = new SqlCommand("select fec_via from Viajes", conectionsql);
+            SqlCommand smd = new SqlCommand("SELECT YEAR(fec_via) AS año FROM Viajes;", conectionsql);
             smd.CommandType = CommandType.Text;
 
             SqlDataReader reader = smd.ExecuteReader();
@@ -29,14 +29,14 @@ namespace T2.SQLServer
             {
                 Anio anio = new Anio()
                 {
-                    Fecha = reader.GetDateTime(0)
+                    Fecha = reader.GetInt32(0)
                 };
                 listAnio.Add(anio);
             }
 
             reader.Close();
             conectionsql.Close();
-            return listAnio;
+            return listAnio.GroupBy(v => v.Fecha).Select(g => g.First()).ToList(); ;
         }
     }
 }

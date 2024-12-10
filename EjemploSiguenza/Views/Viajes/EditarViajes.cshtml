@@ -1,0 +1,65 @@
+﻿@model T2.Entity.ViajesCRUDViewModel
+
+@{
+    ViewBag.Title = "EditarViajes";
+}
+
+<h2>EditarViajes</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Viajes.nro_pla)
+        @Html.DropDownListFor(model => model.Viajes.nro_pla, new SelectList(Model.Bus, "nro_bus", "nro_pla"), "Seleccione un Bus", new { @class = "form-control"    ,     @onchange = "console.log(this.value)" 
+        })
+        @Html.ValidationMessageFor(model => model.Viajes.nro_pla, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Viajes.DescripcionRuta)
+        @Html.DropDownListFor(model => model.Viajes.DescripcionRuta, new SelectList(Model.Rutas, "CodRuta", "Destino"), "Seleccione una Ruta", new { @class = "form-control" , @onchange = "console.log(this.value)" })
+        @Html.ValidationMessageFor(model => model.Viajes.DescripcionRuta, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Viajes.NombreChofer)
+        @Html.DropDownListFor(model => model.Viajes.NombreChofer, new SelectList(Model.Chofers, "CodChofer", "Nom_chofer"), "Seleccione un Chofer", new { @class = "form-control" , @onchange = "console.log(this.value)" })
+        @Html.ValidationMessageFor(model => model.Viajes.NombreChofer, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Viajes.HoraSalida)
+        @Html.EditorFor(model => model.Viajes.HoraSalida, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Viajes.HoraSalida, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Viajes.CostoViaje)
+        @Html.EditorFor(model => model.Viajes.CostoViaje, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Viajes.CostoViaje, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Viajes.NumeroViaje, "Número de Viaje")
+        @Html.EditorFor(model => model.Viajes.NumeroViaje, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Viajes.NumeroViaje, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Viajes.FechaViaje, "Fecha de Viaje")
+        @Html.EditorFor(model => model.Viajes.FechaViaje, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+        @Html.ValidationMessageFor(model => model.Viajes.FechaViaje, "", new { @class = "text-danger" })
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    @Html.ActionLink("Cancelar", "ListadoCompletoViajes", null, new { @class = "btn btn-secondary" })
+
+}
+
+<div>
+    @Html.ActionLink("Back to List", "ListadoCompletoViajes")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+

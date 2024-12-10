@@ -42,10 +42,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bus_LP.cs" />
     <Compile Include="Fecha_CL.cs" />
     <Compile Include="Chofer_DL.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SP_Ruta.cs" />
+    <Compile Include="SP_VIAJES.cs" />
     <Compile Include="SP_Viaje_DL.cs" />
   </ItemGroup>
   <ItemGroup>

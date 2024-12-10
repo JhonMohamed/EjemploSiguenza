@@ -32,11 +32,11 @@ namespace T2.MainModel
             {
                 Viaje viaje = new Viaje()
                 {
-                    NroVia = reader.GetString(0),
-                    FecVia = reader.GetInt32(1),
-                    HrsSal = reader.GetString(2),
-                    CodRut = reader.GetString(3),
-                    DesRut = reader.GetString(4),
+                    NroVia = reader.IsDBNull(0) ? null : reader.GetString(0),
+                    FecVia = reader.IsDBNull(1) ? (DateTime?)null : reader.GetDateTime(1), 
+                    HrsSal = reader.IsDBNull(2) ? null : reader.GetString(2),
+                    CodRut = reader.IsDBNull(3) ? null : reader.GetString(3),
+                    DesRut = reader.IsDBNull(4) ? null : reader.GetString(4),
                     CostoVia = reader.IsDBNull(5) ? 0 : reader.GetDecimal(5)
                 };
                 lista.Add(viaje);

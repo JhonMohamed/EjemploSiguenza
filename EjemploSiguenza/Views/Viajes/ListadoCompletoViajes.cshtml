@@ -1,0 +1,94 @@
+﻿@model IEnumerable<T2.Entity.Viajes>
+
+@{
+    ViewBag.Title = "ListadoCompletoViajes";
+}
+
+<h2>ListadoCompletoViajes</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NumeroViaje)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nro_pla)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DescripcionRuta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HoraSalida)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaViaje)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CostoViaje)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreChofer)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumeroViaje)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nro_pla)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescripcionRuta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoraSalida)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaViaje)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CostoViaje)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreChofer)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditarViajes", new { nroViaje = item.NumeroViaje }) |
+                @Html.ActionLink("Details", "DetallesViaje", new { nroViaje = item.NumeroViaje }) |
+                <button class="btn btn-outline-danger" onclick="confirmarEliminacion('@item.NumeroViaje')">Eliminar</button>
+            </td>
+        </tr>
+    }
+
+</table>
+<p>
+    @Html.ActionLink("Ir al filtrado", "ListadoViajes", null, new { @class = "btn btn-primary" })
+</p>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    function confirmarEliminacion(NumeroViaje) {
+        Swal.fire({
+            title: '¿Estás seguro?',
+            text: "¡No podrás revertir esto!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sí, eliminarlo!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = '@Url.Action("EliminarViaje", "Viajes")?NumeroViaje=' + NumeroViaje;
+            }
+        });
+    }
+
+
+</script>

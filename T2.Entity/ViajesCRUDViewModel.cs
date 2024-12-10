@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace T2.Entity
 {
-    public class ViajesViewModele
+    public class ViajesCRUDViewModel
     {
-        public List<Viaje> Viajes { get; set; }
+        public Viajes Viajes { get; set; }
+        public List<Ruta> Rutas { get; set; }
         public List<Chofer> Chofers { get; set; }
-        public List<Anio> Anio { get; set; }
-
+        public List<Bus> Bus { get; set; }
 
     }
 }

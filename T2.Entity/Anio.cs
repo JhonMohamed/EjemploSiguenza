@@ -8,7 +8,7 @@ namespace T2.Entity
 {
     public class Anio
     {
-        public DateTime Fecha { get; set; }
+        public int? Fecha { get; set; }
 
     }
 }

@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace T2.MainModel
+namespace T2.Entity
 {
-    public class Class1
+    public class Bus
     {
+        public int? nro_bus { get; set; }
+        public string nro_pla { get; set; }
     }
 }
